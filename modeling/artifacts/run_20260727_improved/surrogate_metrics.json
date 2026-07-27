@@ -1,0 +1,30 @@
+[
+  {
+    "model": "SpatialGCN",
+    "mae": 2.8424254527096554e-05,
+    "spearman": 0.982840464600459,
+    "recall_at_k": 0.6674285714285714,
+    "best_in_predicted_top_k": 0.7885714285714286,
+    "policy_regret": 1.8765870481729508e-06,
+    "relative_policy_regret": 0.003945274052235509,
+    "relative_policy_regret_p95": 0.03245485904843475,
+    "recall_best_ci_low": 0.7257142857142858,
+    "recall_best_ci_high": 0.8514285714285714,
+    "evaluation_units": 175,
+    "fit_seconds": 219.24511737500143
+  },
+  {
+    "model": "HistGradientBoosting",
+    "mae": 9.370325324475941e-05,
+    "spearman": 0.9756841229545031,
+    "recall_at_k": 0.4340000000000001,
+    "best_in_predicted_top_k": 0.5257142857142857,
+    "policy_regret": 5.646441439565957e-06,
+    "relative_policy_regret": 0.012889591254106682,
+    "relative_policy_regret_p95": 0.0701441049363909,
+    "recall_best_ci_low": 0.45714285714285713,
+    "recall_best_ci_high": 0.6,
+    "evaluation_units": 175,
+    "fit_seconds": 2.2492889999994077
+  }
+]

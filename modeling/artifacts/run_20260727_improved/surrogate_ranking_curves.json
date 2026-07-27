@@ -1,0 +1,126 @@
+{
+  "SpatialGCN": {
+    "1": {
+      "mae": 2.8424254511051307e-05,
+      "spearman": 0.9828404646855423,
+      "recall_at_k": 0.15428571428571428,
+      "best_in_predicted_top_k": 0.15428571428571428,
+      "policy_regret": 1.8948885933018592e-05,
+      "relative_policy_regret": 0.04875939864141765,
+      "relative_policy_regret_p95": 0.20007307682828246,
+      "recall_best_ci_low": 0.10857142857142857,
+      "recall_best_ci_high": 0.21142857142857144,
+      "evaluation_units": 175
+    },
+    "5": {
+      "mae": 2.8424254511051307e-05,
+      "spearman": 0.9828404646855423,
+      "recall_at_k": 0.3782857142857143,
+      "best_in_predicted_top_k": 0.38857142857142857,
+      "policy_regret": 6.5067008197789675e-06,
+      "relative_policy_regret": 0.015398269417090956,
+      "relative_policy_regret_p95": 0.07889945813526598,
+      "recall_best_ci_low": 0.32,
+      "recall_best_ci_high": 0.46285714285714286,
+      "evaluation_units": 175
+    },
+    "10": {
+      "mae": 2.8424254511051307e-05,
+      "spearman": 0.9828404646855423,
+      "recall_at_k": 0.561142857142857,
+      "best_in_predicted_top_k": 0.5942857142857143,
+      "policy_regret": 3.88214312734931e-06,
+      "relative_policy_regret": 0.009100966475060986,
+      "relative_policy_regret_p95": 0.04896676565183908,
+      "recall_best_ci_low": 0.5257142857142857,
+      "recall_best_ci_high": 0.6628571428571428,
+      "evaluation_units": 175
+    },
+    "20": {
+      "mae": 2.8424254511051307e-05,
+      "spearman": 0.9828404646855423,
+      "recall_at_k": 0.6674285714285714,
+      "best_in_predicted_top_k": 0.7885714285714286,
+      "policy_regret": 1.8765864321836277e-06,
+      "relative_policy_regret": 0.003945273592773957,
+      "relative_policy_regret_p95": 0.03245486801094626,
+      "recall_best_ci_low": 0.7257142857142858,
+      "recall_best_ci_high": 0.8514285714285714,
+      "evaluation_units": 175
+    },
+    "50": {
+      "mae": 2.8424254511051307e-05,
+      "spearman": 0.9828404646855423,
+      "recall_at_k": 0.7950857142857142,
+      "best_in_predicted_top_k": 0.9428571428571428,
+      "policy_regret": 1.5792256648700892e-07,
+      "relative_policy_regret": 0.00031742509873068544,
+      "relative_policy_regret_p95": 0.0010493414728070126,
+      "recall_best_ci_low": 0.9085714285714286,
+      "recall_best_ci_high": 0.9714285714285714,
+      "evaluation_units": 175
+    }
+  },
+  "HistGradientBoosting": {
+    "1": {
+      "mae": 9.370325324475941e-05,
+      "spearman": 0.9756841229545031,
+      "recall_at_k": 0.16,
+      "best_in_predicted_top_k": 0.16,
+      "policy_regret": 3.912698153919718e-05,
+      "relative_policy_regret": 0.08838821669691868,
+      "relative_policy_regret_p95": 0.2840659356271378,
+      "recall_best_ci_low": 0.10285714285714286,
+      "recall_best_ci_high": 0.21714285714285714,
+      "evaluation_units": 175
+    },
+    "5": {
+      "mae": 9.370325324475941e-05,
+      "spearman": 0.9756841229545031,
+      "recall_at_k": 0.24114285714285716,
+      "best_in_predicted_top_k": 0.32,
+      "policy_regret": 1.4555416288700242e-05,
+      "relative_policy_regret": 0.03405428873314627,
+      "relative_policy_regret_p95": 0.1251741580888591,
+      "recall_best_ci_low": 0.25142857142857145,
+      "recall_best_ci_high": 0.38857142857142857,
+      "evaluation_units": 175
+    },
+    "10": {
+      "mae": 9.370325324475941e-05,
+      "spearman": 0.9756841229545031,
+      "recall_at_k": 0.3097142857142858,
+      "best_in_predicted_top_k": 0.4342857142857143,
+      "policy_regret": 7.99775873495366e-06,
+      "relative_policy_regret": 0.018994783244781554,
+      "relative_policy_regret_p95": 0.07914679321611114,
+      "recall_best_ci_low": 0.3657142857142857,
+      "recall_best_ci_high": 0.5085714285714286,
+      "evaluation_units": 175
+    },
+    "20": {
+      "mae": 9.370325324475941e-05,
+      "spearman": 0.9756841229545031,
+      "recall_at_k": 0.4340000000000001,
+      "best_in_predicted_top_k": 0.5257142857142857,
+      "policy_regret": 5.646441439565957e-06,
+      "relative_policy_regret": 0.012889591254106682,
+      "relative_policy_regret_p95": 0.0701441049363909,
+      "recall_best_ci_low": 0.45714285714285713,
+      "recall_best_ci_high": 0.6,
+      "evaluation_units": 175
+    },
+    "50": {
+      "mae": 9.370325324475941e-05,
+      "spearman": 0.9756841229545031,
+      "recall_at_k": 0.6090285714285714,
+      "best_in_predicted_top_k": 0.7142857142857143,
+      "policy_regret": 2.5979355973323618e-06,
+      "relative_policy_regret": 0.006235409534263362,
+      "relative_policy_regret_p95": 0.037967882026655776,
+      "recall_best_ci_low": 0.6457142857142857,
+      "recall_best_ci_high": 0.7771428571428571,
+      "evaluation_units": 175
+    }
+  }
+}

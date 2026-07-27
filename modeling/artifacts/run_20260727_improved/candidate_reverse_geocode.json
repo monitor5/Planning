@@ -1,0 +1,23 @@
+{
+  "retrieved_on": "2026-07-27",
+  "source": "Nominatim / OpenStreetMap",
+  "license_note": "Approximate context only; not parcel or buildability evidence.",
+  "candidates": [
+    {
+      "role": "base_scenario_exact_best",
+      "gid": "다사638441",
+      "latitude": 37.495900,
+      "longitude": 127.091041,
+      "approximate_address": "서울특별시 강남구 일원1동 남부순환로",
+      "source_url": "https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=37.495900&lon=127.091041&zoom=18&addressdetails=1"
+    },
+    {
+      "role": "cross_scenario_robust_rank_1",
+      "gid": "다사635507",
+      "latitude": 37.555377,
+      "longitude": 127.087319,
+      "approximate_address": "서울특별시 광진구 중곡2동 천호대로125길 35-17 인근",
+      "source_url": "https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=37.555377&lon=127.087319&zoom=18&addressdetails=1"
+    }
+  ]
+}

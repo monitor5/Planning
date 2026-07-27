@@ -1,0 +1,175 @@
+{
+  "method_change": {
+    "reason": "preserve node-local peaks lost by graph smoothing",
+    "node_model": "64-64 GELU MLP with top-emphasized Huber loss",
+    "ensemble": "fixed 0.5 GCN + 0.5 MLP raw-delta prediction",
+    "ensemble_weight_selected_without_test_metric_search": true
+  },
+  "metrics": [
+    {
+      "model": "NodeMLP",
+      "mae": 2.5723729369857843e-05,
+      "spearman": 0.9842965930628457,
+      "recall_at_k": 0.7231428571428571,
+      "best_in_predicted_top_k": 0.8914285714285715,
+      "policy_regret": 5.465734284371137e-07,
+      "relative_policy_regret": 0.0009112689655830903,
+      "relative_policy_regret_p95": 0.0030167127706742214,
+      "recall_best_ci_low": 0.84,
+      "recall_best_ci_high": 0.9371428571428572,
+      "evaluation_units": 175,
+      "fit_seconds": 427.84428862501227
+    },
+    {
+      "model": "FixedGCNMLPEnsemble",
+      "mae": 2.4768594932118415e-05,
+      "spearman": 0.9856077306904575,
+      "recall_at_k": 0.7274285714285715,
+      "best_in_predicted_top_k": 0.8742857142857143,
+      "policy_regret": 7.024483481648287e-07,
+      "relative_policy_regret": 0.00115615324220494,
+      "relative_policy_regret_p95": 0.003204750100503506,
+      "recall_best_ci_low": 0.8285714285714286,
+      "recall_best_ci_high": 0.92,
+      "evaluation_units": 175,
+      "fit_seconds": 427.84428862501227
+    }
+  ],
+  "ranking_curves": {
+    "NodeMLP": {
+      "1": {
+        "mae": 2.5723729348969255e-05,
+        "spearman": 0.9842965929038886,
+        "recall_at_k": 0.24,
+        "best_in_predicted_top_k": 0.24,
+        "policy_regret": 9.824169276403553e-06,
+        "relative_policy_regret": 0.025165414107634294,
+        "relative_policy_regret_p95": 0.10887307985205955,
+        "recall_best_ci_low": 0.17714285714285713,
+        "recall_best_ci_high": 0.3028571428571429,
+        "evaluation_units": 175
+      },
+      "5": {
+        "mae": 2.5723729348969255e-05,
+        "spearman": 0.9842965929038886,
+        "recall_at_k": 0.49714285714285716,
+        "best_in_predicted_top_k": 0.6171428571428571,
+        "policy_regret": 2.95313133151406e-06,
+        "relative_policy_regret": 0.0067461366000766835,
+        "relative_policy_regret_p95": 0.03723255310290129,
+        "recall_best_ci_low": 0.5542857142857143,
+        "recall_best_ci_high": 0.6857142857142857,
+        "evaluation_units": 175
+      },
+      "10": {
+        "mae": 2.5723729348969255e-05,
+        "spearman": 0.9842965929038886,
+        "recall_at_k": 0.6285714285714286,
+        "best_in_predicted_top_k": 0.7714285714285715,
+        "policy_regret": 1.479971171133933e-06,
+        "relative_policy_regret": 0.0033092713988883255,
+        "relative_policy_regret_p95": 0.013745031578642415,
+        "recall_best_ci_low": 0.7142857142857143,
+        "recall_best_ci_high": 0.8342857142857143,
+        "evaluation_units": 175
+      },
+      "20": {
+        "mae": 2.5723729348969255e-05,
+        "spearman": 0.9842965929038886,
+        "recall_at_k": 0.7231428571428571,
+        "best_in_predicted_top_k": 0.8914285714285715,
+        "policy_regret": 5.465734145388662e-07,
+        "relative_policy_regret": 0.0009112690386511781,
+        "relative_policy_regret_p95": 0.0030166905585368243,
+        "recall_best_ci_low": 0.84,
+        "recall_best_ci_high": 0.9371428571428572,
+        "evaluation_units": 175
+      },
+      "50": {
+        "mae": 2.5723729348969255e-05,
+        "spearman": 0.9842965929038886,
+        "recall_at_k": 0.8325714285714285,
+        "best_in_predicted_top_k": 0.9542857142857143,
+        "policy_regret": 1.0202556340686643e-07,
+        "relative_policy_regret": 0.00015526434443498478,
+        "relative_policy_regret_p95": 0.0,
+        "recall_best_ci_low": 0.92,
+        "recall_best_ci_high": 0.9828571428571429,
+        "evaluation_units": 175
+      }
+    },
+    "FixedGCNMLPEnsemble": {
+      "1": {
+        "mae": 2.4768594932118415e-05,
+        "spearman": 0.9856077306904575,
+        "recall_at_k": 0.22285714285714286,
+        "best_in_predicted_top_k": 0.22285714285714286,
+        "policy_regret": 1.116424623347775e-05,
+        "relative_policy_regret": 0.027870998849135194,
+        "relative_policy_regret_p95": 0.11983567604369887,
+        "recall_best_ci_low": 0.17142857142857143,
+        "recall_best_ci_high": 0.2857142857142857,
+        "evaluation_units": 175
+      },
+      "5": {
+        "mae": 2.4768594932118415e-05,
+        "spearman": 0.9856077306904575,
+        "recall_at_k": 0.4834285714285715,
+        "best_in_predicted_top_k": 0.5885714285714285,
+        "policy_regret": 3.951892932116158e-06,
+        "relative_policy_regret": 0.009075144840192815,
+        "relative_policy_regret_p95": 0.042219193836068876,
+        "recall_best_ci_low": 0.5198571428571429,
+        "recall_best_ci_high": 0.6628571428571428,
+        "evaluation_units": 175
+      },
+      "10": {
+        "mae": 2.4768594932118415e-05,
+        "spearman": 0.9856077306904575,
+        "recall_at_k": 0.6365714285714286,
+        "best_in_predicted_top_k": 0.7714285714285715,
+        "policy_regret": 1.591991757979226e-06,
+        "relative_policy_regret": 0.00298801752200097,
+        "relative_policy_regret_p95": 0.015235169487047019,
+        "recall_best_ci_low": 0.7085714285714285,
+        "recall_best_ci_high": 0.8342857142857143,
+        "evaluation_units": 175
+      },
+      "20": {
+        "mae": 2.4768594932118415e-05,
+        "spearman": 0.9856077306904575,
+        "recall_at_k": 0.7274285714285715,
+        "best_in_predicted_top_k": 0.8742857142857143,
+        "policy_regret": 7.024483481648287e-07,
+        "relative_policy_regret": 0.00115615324220494,
+        "relative_policy_regret_p95": 0.003204750100503506,
+        "recall_best_ci_low": 0.8285714285714286,
+        "recall_best_ci_high": 0.92,
+        "evaluation_units": 175
+      },
+      "50": {
+        "mae": 2.4768594932118415e-05,
+        "spearman": 0.9856077306904575,
+        "recall_at_k": 0.8389714285714285,
+        "best_in_predicted_top_k": 0.96,
+        "policy_regret": 4.3090969275810007e-08,
+        "relative_policy_regret": 8.97069326138542e-05,
+        "relative_policy_regret_p95": 0.0,
+        "recall_best_ci_low": 0.9257142857142857,
+        "recall_best_ci_high": 0.9828571428571429,
+        "evaluation_units": 175
+      }
+    }
+  },
+  "gates": {
+    "NodeMLP": false,
+    "FixedGCNMLPEnsemble": false,
+    "thresholds": {
+      "min_spearman": 0.85,
+      "min_recall_at_20": 0.5,
+      "min_recall_best_at_20": 0.95,
+      "max_relative_policy_regret_at_20": 0.02
+    },
+    "final_authority": "exact_e2sfca_weighted_gini"
+  }
+}

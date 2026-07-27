@@ -1,0 +1,647 @@
+{
+  "run_id": "run_20260727_improved",
+  "model_version": "0.1.0",
+  "objective": "minimize_65plus_population_weighted_e2sfca_gini",
+  "status": "SCREENING_ONLY_NOT_POLICY_DEPLOYABLE",
+  "config": {
+    "random_seed": 20260727,
+    "walking_speed_m_per_min": 51.0,
+    "candidate_stride_m": 100.0,
+    "scenarios": [
+      {
+        "name": "legal20_walk10_new20",
+        "existing_capacity_mode": "LEGAL_NOMINAL",
+        "population_mode": "PUBLISHED_LOWER_BOUND",
+        "new_capacity": 20.0,
+        "tau_minutes": 5.0,
+        "cutoff_minutes": 10.0
+      },
+      {
+        "name": "legal20_walk15_new20",
+        "existing_capacity_mode": "LEGAL_NOMINAL",
+        "population_mode": "PUBLISHED_LOWER_BOUND",
+        "new_capacity": 20.0,
+        "tau_minutes": 7.5,
+        "cutoff_minutes": 15.0
+      },
+      {
+        "name": "legal20_walk15_new40_BASE",
+        "existing_capacity_mode": "LEGAL_NOMINAL",
+        "population_mode": "PUBLISHED_LOWER_BOUND",
+        "new_capacity": 40.0,
+        "tau_minutes": 7.5,
+        "cutoff_minutes": 15.0
+      },
+      {
+        "name": "legal20_walk15_new60",
+        "existing_capacity_mode": "LEGAL_NOMINAL",
+        "population_mode": "PUBLISHED_LOWER_BOUND",
+        "new_capacity": 60.0,
+        "tau_minutes": 7.5,
+        "cutoff_minutes": 15.0
+      },
+      {
+        "name": "legal20_walk20_new40",
+        "existing_capacity_mode": "LEGAL_NOMINAL",
+        "population_mode": "PUBLISHED_LOWER_BOUND",
+        "new_capacity": 40.0,
+        "tau_minutes": 10.0,
+        "cutoff_minutes": 20.0
+      },
+      {
+        "name": "historical_reference_walk15_new40",
+        "existing_capacity_mode": "HISTORICAL_REFERENCE_WINSORIZED",
+        "population_mode": "PUBLISHED_LOWER_BOUND",
+        "new_capacity": 40.0,
+        "tau_minutes": 7.5,
+        "cutoff_minutes": 15.0
+      },
+      {
+        "name": "legal20_walk15_new40_1km_residual",
+        "existing_capacity_mode": "LEGAL_NOMINAL",
+        "population_mode": "ONE_KM_RESIDUAL_SENSITIVITY",
+        "new_capacity": 40.0,
+        "tau_minutes": 7.5,
+        "cutoff_minutes": 15.0
+      }
+    ],
+    "base_scenario": "legal20_walk15_new40_BASE",
+    "candidate_min_local_population_1000m": 1.0,
+    "surrogate": {
+      "hidden_dim": 32,
+      "dropout": 0.15,
+      "epochs": 160,
+      "patience": 20,
+      "learning_rate": 0.01,
+      "weight_decay": 0.0001,
+      "top_loss_weight": 20.0,
+      "folds": 5,
+      "top_k": 20
+    },
+    "gates": {
+      "min_spearman": 0.85,
+      "min_recall_at_20": 0.5,
+      "min_recall_best_at_20": 0.95,
+      "max_relative_policy_regret_at_20": 0.02
+    }
+  },
+  "population_audit": {
+    "raw_rows": 64681,
+    "unique_grids": 61652,
+    "duplicate_rows": 3029,
+    "published_positive_rows": 27366,
+    "suppressed_rows": 3024,
+    "blank_rows": 34291,
+    "published_population": 1962046.0
+  },
+  "population_sensitivity": {
+    "method": "positive_1km_residual_equal_to_explicit_NA_cells",
+    "lower_bound_total": 1962046.0,
+    "sensitivity_total": 1969965.0,
+    "allocated_total": 7919.0
+  },
+  "facility_audit": {
+    "HISTORICAL_REFERENCE_WINSORIZED": {
+      "capacity_mode": "HISTORICAL_REFERENCE_WINSORIZED",
+      "capacity_semantics": "stale historical registered-admission reference winsorized at p99; not current operational capacity",
+      "facility_rows": 3644,
+      "capacity_sum": 101585.36000000002,
+      "verified_operational_capacity_rows": 0,
+      "source_sha256": "b37240abd865d47a5169141d5cea8b2838c1efec0642942085d6fa2a1f4169b8"
+    },
+    "LEGAL_NOMINAL": {
+      "capacity_mode": "LEGAL_NOMINAL",
+      "capacity_semantics": "legal minimum proxy; status unverified; sensitivity only",
+      "facility_rows": 3644,
+      "capacity_sum": 72800.0,
+      "verified_operational_capacity_rows": 0,
+      "source_sha256": "b37240abd865d47a5169141d5cea8b2838c1efec0642942085d6fa2a1f4169b8"
+    },
+    "STRICT_UNKNOWN": {
+      "capacity_mode": "STRICT_UNKNOWN",
+      "capacity_semantics": "verified operational capacity unavailable; baseline Gini undefined",
+      "facility_rows": 3644,
+      "capacity_sum": 0.0,
+      "verified_operational_capacity_rows": 0,
+      "source_sha256": "b37240abd865d47a5169141d5cea8b2838c1efec0642942085d6fa2a1f4169b8"
+    }
+  },
+  "capacity_validation": {
+    "selected_model": "median_scenario",
+    "deployable": false,
+    "reason": "insufficient_positive_correlation:spearman=0.086479<0.200000",
+    "metrics": {
+      "sample": {
+        "input_rows": 292,
+        "valid_positive_rows": 292,
+        "dropped_rows": 0,
+        "borough_groups": 23,
+        "unique_areas": 272,
+        "unique_capacities": 81
+      },
+      "correlation": {
+        "pearson": -0.006741528166304999,
+        "spearman": 0.08647879918590513,
+        "minimum_required_spearman": 0.2,
+        "sufficient_positive_correlation": false
+      },
+      "cv": {
+        "scheme": "GroupKFold",
+        "group_column": "borough",
+        "n_splits": 5,
+        "status": "completed",
+        "all_preprocessing_fit_within_fold": true
+      },
+      "models": {
+        "median_scenario": {
+          "status": "ok",
+          "mae": 21.174657534246574,
+          "rmse": 28.964964665647216,
+          "median_absolute_error": 17.0,
+          "r2": -0.07366398574873334,
+          "folds": [
+            {
+              "fold": 1,
+              "train_rows": 233,
+              "test_rows": 59,
+              "mae": 21.305084745762713,
+              "rmse": 29.91428432671691,
+              "median_absolute_error": 14.0,
+              "r2": -0.3258813534360716
+            },
+            {
+              "fold": 2,
+              "train_rows": 235,
+              "test_rows": 57,
+              "mae": 17.228070175438596,
+              "rmse": 22.765779181797974,
+              "median_absolute_error": 15.0,
+              "r2": -0.1759939660169425
+            },
+            {
+              "fold": 3,
+              "train_rows": 233,
+              "test_rows": 59,
+              "mae": 23.338983050847457,
+              "rmse": 33.45399066666672,
+              "median_absolute_error": 16.0,
+              "r2": -0.1640640406747087
+            },
+            {
+              "fold": 4,
+              "train_rows": 233,
+              "test_rows": 59,
+              "mae": 19.338983050847457,
+              "rmse": 24.686852330058233,
+              "median_absolute_error": 17.0,
+              "r2": -0.008155198255763274
+            },
+            {
+              "fold": 5,
+              "train_rows": 234,
+              "test_rows": 58,
+              "mae": 24.586206896551722,
+              "rmse": 32.3376582010979,
+              "median_absolute_error": 18.0,
+              "r2": -0.2196851813327787
+            }
+          ]
+        },
+        "nonnegative_linear": {
+          "status": "ok",
+          "mae": 22.34317224585621,
+          "rmse": 28.736844153361297,
+          "median_absolute_error": 18.871373023733536,
+          "r2": -0.056818786770651775,
+          "folds": [
+            {
+              "fold": 1,
+              "train_rows": 233,
+              "test_rows": 59,
+              "mae": 20.559732789760996,
+              "rmse": 27.857182085445725,
+              "median_absolute_error": 15.811322369696846,
+              "r2": -0.1497986500434505
+            },
+            {
+              "fold": 2,
+              "train_rows": 235,
+              "test_rows": 57,
+              "mae": 23.02053004852557,
+              "rmse": 26.865673428343992,
+              "median_absolute_error": 21.95744680851064,
+              "r2": -0.6377044075006695
+            },
+            {
+              "fold": 3,
+              "train_rows": 233,
+              "test_rows": 59,
+              "mae": 22.64072161198807,
+              "rmse": 31.868957483604436,
+              "median_absolute_error": 16.197424892703864,
+              "r2": -0.056371618135130364
+            },
+            {
+              "fold": 4,
+              "train_rows": 233,
+              "test_rows": 59,
+              "mae": 21.813050120026183,
+              "rmse": 26.06528905194101,
+              "median_absolute_error": 20.566523605150216,
+              "r2": -0.1238828553080602
+            },
+            {
+              "fold": 5,
+              "train_rows": 234,
+              "test_rows": 58,
+              "mae": 23.72826407309166,
+              "rmse": 30.570087537943945,
+              "median_absolute_error": 22.5,
+              "r2": -0.08999367865921126
+            }
+          ],
+          "relative_mae_improvement_vs_median": -0.05518458608927924,
+          "fold_win_rate_vs_median": 0.6,
+          "rmse_improved_vs_median": true
+        },
+        "huber": {
+          "status": "ok",
+          "mae": 21.847774254649284,
+          "rmse": 29.209513825373655,
+          "median_absolute_error": 17.943676132664624,
+          "r2": -0.09187025885833,
+          "folds": [
+            {
+              "fold": 1,
+              "train_rows": 233,
+              "test_rows": 59,
+              "mae": 21.1228341224945,
+              "rmse": 29.555926261232287,
+              "median_absolute_error": 14.76395726949383,
+              "r2": -0.2943048463018496
+            },
+            {
+              "fold": 2,
+              "train_rows": 235,
+              "test_rows": 57,
+              "mae": 20.148258864151465,
+              "rmse": 24.6357588490767,
+              "median_absolute_error": 18.55016761986493,
+              "r2": -0.3771205016537431
+            },
+            {
+              "fold": 3,
+              "train_rows": 233,
+              "test_rows": 59,
+              "mae": 23.200837208671793,
+              "rmse": 33.25487746175934,
+              "median_absolute_error": 15.684783005238167,
+              "r2": -0.15024860308074217
+            },
+            {
+              "fold": 4,
+              "train_rows": 233,
+              "test_rows": 59,
+              "mae": 20.24645796821132,
+              "rmse": 25.146328903268387,
+              "median_absolute_error": 19.328827689225342,
+              "r2": -0.04603240471225711
+            },
+            {
+              "fold": 5,
+              "train_rows": 234,
+              "test_rows": 58,
+              "mae": 24.50796031789101,
+              "rmse": 32.28210664047694,
+              "median_absolute_error": 18.398156135334226,
+              "r2": -0.21549828457490094
+            }
+          ],
+          "relative_mae_improvement_vs_median": -0.031788788995243636,
+          "fold_win_rate_vs_median": 0.6,
+          "rmse_improved_vs_median": false
+        },
+        "random_forest": {
+          "status": "ok",
+          "mae": 23.323524721801366,
+          "rmse": 30.289659439904874,
+          "median_absolute_error": 19.003368178262576,
+          "r2": -0.1741164164593909,
+          "folds": [
+            {
+              "fold": 1,
+              "train_rows": 233,
+              "test_rows": 59,
+              "mae": 21.223711043178827,
+              "rmse": 27.99307494916868,
+              "median_absolute_error": 15.829437715742841,
+              "r2": -0.16104390368389132
+            },
+            {
+              "fold": 2,
+              "train_rows": 235,
+              "test_rows": 57,
+              "mae": 24.951034757136185,
+              "rmse": 29.8910860347388,
+              "median_absolute_error": 20.846830702487615,
+              "r2": -1.027325319729989
+            },
+            {
+              "fold": 3,
+              "train_rows": 233,
+              "test_rows": 59,
+              "mae": 24.873082779637258,
+              "rmse": 35.68548771657836,
+              "median_absolute_error": 18.07046728611239,
+              "r2": -0.32453757822740026
+            },
+            {
+              "fold": 4,
+              "train_rows": 233,
+              "test_rows": 59,
+              "mae": 21.364671420657174,
+              "rmse": 25.926024507042076,
+              "median_absolute_error": 20.30689001307917,
+              "r2": -0.11190532414123844
+            },
+            {
+              "fold": 5,
+              "train_rows": 234,
+              "test_rows": 58,
+              "mae": 24.276444624901956,
+              "rmse": 31.058028574118914,
+              "median_absolute_error": 19.349772956350588,
+              "r2": -0.12506699649673658
+            }
+          ],
+          "relative_mae_improvement_vs_median": -0.10148297246741055,
+          "fold_win_rate_vs_median": 0.4,
+          "rmse_improved_vs_median": false
+        }
+      },
+      "selection": {
+        "minimum_relative_mae_improvement": 0.05,
+        "minimum_fold_win_rate": 0.6,
+        "selected_model": "median_scenario",
+        "deployable": false,
+        "reason": "insufficient_positive_correlation:spearman=0.086479<0.200000"
+      }
+    },
+    "metadata": {
+      "feature_column": "area_m2",
+      "target_column": "capacity",
+      "group_column": "borough",
+      "target_policy": "positive_observed_values_only",
+      "generated_capacity_labels_used": false,
+      "prohibited_target_columns": [
+        "capacity_area_fire_proxy",
+        "capacity_legal_nominal",
+        "capacity_strict_unknown",
+        "estimated_capacity",
+        "legacy_capacity_proxy"
+      ],
+      "deployment_trust_requested": false,
+      "trusted_for_deployment": false,
+      "historical_legacy_lineage": true,
+      "training_area_min_m2": 23.98,
+      "training_area_max_m2": 1649.17,
+      "random_state": 20260727,
+      "preparation": {
+        "master_rows": 4281,
+        "historical_rows": 1854,
+        "joined_rows": 1854,
+        "positive_finite_rows": 292,
+        "dropped_missing_or_nonpositive_area": 1372,
+        "dropped_missing_or_nonpositive_capacity": 692,
+        "dropped_ineligible_p0": 0,
+        "all_rows_require_current_register_verification": true,
+        "any_row_marked_operationally_usable": false,
+        "label_source": "capacity_registered_historical_candidate",
+        "feature_source": "legacy_usable_area_m2",
+        "generated_capacity_labels_used": false
+      },
+      "selection_reason": "insufficient_positive_correlation:spearman=0.086479<0.200000",
+      "facility_master_csv": "${PROJECT_ROOT}/tmp/planning_data/data/facilities/processed/facility-master.csv",
+      "historical_candidates_csv": "${PROJECT_ROOT}/tmp/planning_data/data/facilities/processed/historical-capacity-candidates.csv",
+      "lineage_policy": "historical capacity and legacy area are diagnostic-only until both are verified against current authoritative records",
+      "source_workflow_deployable": false,
+      "artifact_path": "${PROJECT_ROOT}/modeling/artifacts/run_20260727_improved/capacity_diagnostic.joblib"
+    }
+  },
+  "validation_gates": {
+    "gcn_approved": false,
+    "thresholds": {
+      "min_spearman": 0.85,
+      "min_recall_at_20": 0.5,
+      "min_recall_best_at_20": 0.95,
+      "max_relative_policy_regret_at_20": 0.02
+    },
+    "strict_unknown": {
+      "capacity_sum": 0.0,
+      "baseline_gini_defined": false,
+      "status": "REJECTED_UNDEFINED_ZERO_MEAN",
+      "reason": "no verified operational concurrent-capacity observations"
+    },
+    "exact_approved_for_screening": true,
+    "final_authority": "exact_e2sfca_weighted_gini",
+    "deployment_scope": "WALK_EUCLIDEAN_FEASIBILITY_UNKNOWN_SCREENING"
+  },
+  "scenario_summary": [
+    {
+      "name": "legal20_walk10_new20",
+      "existing_capacity_mode": "LEGAL_NOMINAL",
+      "population_mode": "PUBLISHED_LOWER_BOUND",
+      "baseline_gini": 0.33677020124125506,
+      "best_candidate_gini": 0.3364191276860574,
+      "best_delta_gini": 0.00035107355519764516,
+      "best_gid": "다사637437",
+      "valid_candidates": 52736,
+      "invalid_zero_demand_candidates": 4986,
+      "exact_runtime_seconds": 3.5987253329949453,
+      "conservation_error": 5.820766091346741e-11
+    },
+    {
+      "name": "legal20_walk15_new20",
+      "existing_capacity_mode": "LEGAL_NOMINAL",
+      "population_mode": "PUBLISHED_LOWER_BOUND",
+      "baseline_gini": 0.2762244629341156,
+      "best_candidate_gini": 0.2758797913509348,
+      "best_delta_gini": 0.00034467158318080005,
+      "best_gid": "다사639440",
+      "valid_candidates": 55973,
+      "invalid_zero_demand_candidates": 1749,
+      "exact_runtime_seconds": 4.841272208010196,
+      "conservation_error": 1.4551915228366852e-11
+    },
+    {
+      "name": "legal20_walk15_new40_BASE",
+      "existing_capacity_mode": "LEGAL_NOMINAL",
+      "population_mode": "PUBLISHED_LOWER_BOUND",
+      "baseline_gini": 0.2762244629341156,
+      "best_candidate_gini": 0.2755521511286166,
+      "best_delta_gini": 0.0006723118054990374,
+      "best_gid": "다사638441",
+      "valid_candidates": 55973,
+      "invalid_zero_demand_candidates": 1749,
+      "exact_runtime_seconds": 4.8063152079994325,
+      "conservation_error": 1.4551915228366852e-11
+    },
+    {
+      "name": "legal20_walk15_new60",
+      "existing_capacity_mode": "LEGAL_NOMINAL",
+      "population_mode": "PUBLISHED_LOWER_BOUND",
+      "baseline_gini": 0.2762244629341156,
+      "best_candidate_gini": 0.2752642933615941,
+      "best_delta_gini": 0.0009601695725215409,
+      "best_gid": "다사640506",
+      "valid_candidates": 55973,
+      "invalid_zero_demand_candidates": 1749,
+      "exact_runtime_seconds": 4.842684333008947,
+      "conservation_error": 1.4551915228366852e-11
+    },
+    {
+      "name": "legal20_walk20_new40",
+      "existing_capacity_mode": "LEGAL_NOMINAL",
+      "population_mode": "PUBLISHED_LOWER_BOUND",
+      "baseline_gini": 0.24395744334524386,
+      "best_candidate_gini": 0.24329518982597412,
+      "best_delta_gini": 0.0006622535192697399,
+      "best_gid": "다사641507",
+      "valid_candidates": 57722,
+      "invalid_zero_demand_candidates": 0,
+      "exact_runtime_seconds": 7.038548208001885,
+      "conservation_error": 8.731149137020111e-11
+    },
+    {
+      "name": "historical_reference_walk15_new40",
+      "existing_capacity_mode": "HISTORICAL_REFERENCE_WINSORIZED",
+      "population_mode": "PUBLISHED_LOWER_BOUND",
+      "baseline_gini": 0.29278496416043964,
+      "best_candidate_gini": 0.2922888655113656,
+      "best_delta_gini": 0.0004960986490740171,
+      "best_gid": "다사642505",
+      "valid_candidates": 55973,
+      "invalid_zero_demand_candidates": 1749,
+      "exact_runtime_seconds": 4.7929235420015175,
+      "conservation_error": 1.4551915228366852e-11
+    },
+    {
+      "name": "legal20_walk15_new40_1km_residual",
+      "existing_capacity_mode": "LEGAL_NOMINAL",
+      "population_mode": "ONE_KM_RESIDUAL_SENSITIVITY",
+      "baseline_gini": 0.2759811806769372,
+      "best_candidate_gini": 0.27530955074971064,
+      "best_delta_gini": 0.0006716299272265802,
+      "best_gid": "다사638441",
+      "valid_candidates": 56919,
+      "invalid_zero_demand_candidates": 803,
+      "exact_runtime_seconds": 5.104673374997219,
+      "conservation_error": 0.0
+    }
+  ],
+  "candidate_counts": {
+    "all_physical_grids": 61652,
+    "preliminary_local_demand": 57722,
+    "valid_in_every_scenario": 52736
+  },
+  "sources": {
+    "working_repository": {
+      "path": "${PROJECT_ROOT}",
+      "commit": "a817737259e188d3cf2b05af1000b36a14c6f9ae",
+      "dirty": true
+    },
+    "planning_data_repository": {
+      "path": "${PROJECT_ROOT}/tmp/planning_data",
+      "commit": "f896a9b0419928684a7746e2158f7e743caa7dbf",
+      "dirty": false
+    },
+    "input_hashes": {
+      "config": "25361f0b879ef66a8bc3914518e4be6d7839a1eaaf9e6b82b2b3ee30b24ae09d",
+      "facility_master": "b37240abd865d47a5169141d5cea8b2838c1efec0642942085d6fa2a1f4169b8",
+      "historical_capacity": "0ebdeda5116c23a8e2c47fcc01807c5e7f407e2316a0dc8566abfbf959af64c4",
+      "population_archives": {
+        "Data/서울_격자별노인인구(100M)/강남구/(B100)국토통계_인구정보-고령 인구 수(전체)-(격자) 100M_서울특별시 강남구_202410.zip": "bd14d7112948b811aa45d0a374949a060810c65219f127e73b7b2d560378d565",
+        "Data/서울_격자별노인인구(100M)/강동구/(B100)국토통계_인구정보-고령 인구 수(전체)-(격자) 100M_서울특별시 강동구_202410.zip": "a6fe75e2530b7e509f196e49e882c39e459a1a0f241350cf5ec4a9475a9f1803",
+        "Data/서울_격자별노인인구(100M)/강북구/(B100)국토통계_인구정보-고령 인구 수(전체)-(격자) 100M_서울특별시 강북구_202410.zip": "0836f05cec529bee6977d3be53e919db957e5d479eb4c26440806b5a8b3df3de",
+        "Data/서울_격자별노인인구(100M)/강서구/(B100)국토통계_인구정보-고령 인구 수(전체)-(격자) 100M_서울특별시 강서구_202410.zip": "ef8385266ad541c2528250e41dc972364ed6d204a9ad9e108ceeda4eda67aebe",
+        "Data/서울_격자별노인인구(100M)/관악구/(B100)국토통계_인구정보-고령 인구 수(전체)-(격자) 100M_서울특별시 관악구_202410.zip": "026dd157ceca1dd602436f18a91a920f2ae024927c2e56536be8ece7b24f3f3c",
+        "Data/서울_격자별노인인구(100M)/광진구/(B100)국토통계_인구정보-고령 인구 수(전체)-(격자) 100M_서울특별시 광진구_202410.zip": "45d207f9da58c0f7a6fa79bfc30347e41dd78d20528136cff5220ee89da1d1d8",
+        "Data/서울_격자별노인인구(100M)/구로구/(B100)국토통계_인구정보-고령 인구 수(전체)-(격자) 100M_서울특별시 구로구_202410.zip": "98d2e97687b797ae4c2e54395fd657f17bca5963df66d96a9ec4703477f85725",
+        "Data/서울_격자별노인인구(100M)/금천구/(B100)국토통계_인구정보-고령 인구 수(전체)-(격자) 100M_서울특별시 금천구_202410.zip": "c9cbd637080167ff518b2fce8ac843dac31d0e547c1443523676727a97c57811",
+        "Data/서울_격자별노인인구(100M)/노원구/(B100)국토통계_인구정보-고령 인구 수(전체)-(격자) 100M_서울특별시 노원구_202410.zip": "73f2aec4de47425539840e9dd31d1547a0256fd2bda9949c11af43a12777cc4e",
+        "Data/서울_격자별노인인구(100M)/도봉구/(B100)국토통계_인구정보-고령 인구 수(전체)-(격자) 100M_서울특별시 도봉구_202410.zip": "55f5ffc29eafb5d6e2d53b152af26e05aed9c618ab566a6290dafde3ea982b41",
+        "Data/서울_격자별노인인구(100M)/동대문구/(B100)국토통계_인구정보-고령 인구 수(전체)-(격자) 100M_서울특별시 동대문구_202410.zip": "31eb38b8522534ac145950d3d6a8facd9f6b58943f7094b9910d89d9d776729b",
+        "Data/서울_격자별노인인구(100M)/동작구/(B100)국토통계_인구정보-고령 인구 수(전체)-(격자) 100M_서울특별시 동작구_202410.zip": "3cd144ebd8f929443069225c61146f7ad3bcd10f427eacd819782f9c1997a444",
+        "Data/서울_격자별노인인구(100M)/마포구/(B100)국토통계_인구정보-고령 인구 수(전체)-(격자) 100M_서울특별시 마포구_202410.zip": "2c946d14165a7c2379f0fa5b9cf81254f2e40a630702e35b15298498e489bbf4",
+        "Data/서울_격자별노인인구(100M)/서대문구/(B100)국토통계_인구정보-고령 인구 수(전체)-(격자) 100M_서울특별시 서대문구_202410.zip": "1039bfcfdc3b298f001975a7fe9c03e6d45e38e04166f652ad68d22565c122c6",
+        "Data/서울_격자별노인인구(100M)/서울전체_격자별_노인인구수(1km)/(B100)국토통계_인구정보-고령 인구 수(전체)-(격자) 1KM_서울특별시_202410.zip": "8f15143a28e0ab824aec4d8b446f2698fb55676c6396b994c065504f7828b448",
+        "Data/서울_격자별노인인구(100M)/서초구/(B100)국토통계_인구정보-고령 인구 수(전체)-(격자) 100M_서울특별시 서초구_202410.zip": "4043f5ceeef556d06ecb76fc8432b32e7668214dee4cb1358f86a0ce80bc1e89",
+        "Data/서울_격자별노인인구(100M)/성동구/(B100)국토통계_인구정보-고령 인구 수(전체)-(격자) 100M_서울특별시 성동구_202410.zip": "d2817d9659fd11c954fce5627cfd0a0c1fb2f61c3dca0f68cfd9719a61d7d5b3",
+        "Data/서울_격자별노인인구(100M)/성북구/(B100)국토통계_인구정보-고령 인구 수(전체)-(격자) 100M_서울특별시 성북구_202410.zip": "b8552c7196c199300f0b797390a6153e2a47afc998c7fa24f1c36e5cf57f6edc",
+        "Data/서울_격자별노인인구(100M)/송파구/(B100)국토통계_인구정보-고령 인구 수(전체)-(격자) 100M_서울특별시 송파구_202410.zip": "28a96a15103070ac74352625761914e115ccedaa55a78dcd6e18cf0f16f32834",
+        "Data/서울_격자별노인인구(100M)/양천구/(B100)국토통계_인구정보-고령 인구 수(전체)-(격자) 100M_서울특별시 양천구_202410.zip": "e17183ce01687e3c9898203690c00230f70df8f1568ae073a2ccc212994e764e",
+        "Data/서울_격자별노인인구(100M)/영등포구/(B100)국토통계_인구정보-고령 인구 수(전체)-(격자) 100M_서울특별시 영등포구_202410.zip": "73b3b7b0fa81062900b2cdf9fed031f9dd2f22a3b1d6255870aa70db3c239e9b",
+        "Data/서울_격자별노인인구(100M)/용산구/(B100)국토통계_인구정보-고령 인구 수(전체)-(격자) 100M_서울특별시 용산구_202410.zip": "fd854bec43057be400be8320a1f849d6ec699a636ac0e63c79b6583d12b45a12",
+        "Data/서울_격자별노인인구(100M)/은평구/(B100)국토통계_인구정보-고령 인구 수(전체)-(격자) 100M_서울특별시 은평구_202410.zip": "08ae49c4723a3bbf398fc895088f335e9989bf7ce976dd75bae1db0fb0c306ab",
+        "Data/서울_격자별노인인구(100M)/종로구/(B100)국토통계_인구정보-고령 인구 수(전체)-(격자) 100M_서울특별시 종로구_202410.zip": "754dc118014bccbe974c901a1afeca4421ef6a3193e726fc12e1bbe8e16f151d",
+        "Data/서울_격자별노인인구(100M)/중구/(B100)국토통계_인구정보-고령 인구 수(전체)-(격자) 100M_서울특별시 중구_202410.zip": "3b348fdb2bd60c4ff291e3a5443a02d9bd1c7166becb48b9d547e85f58427e15",
+        "Data/서울_격자별노인인구(100M)/중랑구/(B100)국토통계_인구정보-고령 인구 수(전체)-(격자) 100M_서울특별시 중랑구_202410.zip": "a8bc213a74aa39f8a9e183d86ff361d1c1639fed0ee4164258f9011a474aa088"
+      }
+    },
+    "modeling_code_hashes": {
+      "modeling/pyproject.toml": "953115db4ea36aebca09270a042474dc695383de0b33b75e541d357b4ee93292",
+      "modeling/README.md": "158a4d68a283bae4cdf7ae86643ac4ca0e2e4821aefe904123d2ecae820423c5",
+      "modeling/SECURITY.md": "cd2e3a3db2c5614f9e098ba4f12225804a561be411d271a42191f6d373241cab",
+      "modeling/config/base.json": "25361f0b879ef66a8bc3914518e4be6d7839a1eaaf9e6b82b2b3ee30b24ae09d",
+      "modeling/src/elder_guardian/__init__.py": "a49af43d7d7551b7ed6d603860b6bda6c5cf59cd2e5540efc5c38048e8555ffd",
+      "modeling/src/elder_guardian/accessibility.py": "eb7dc2ad24e55c73de4bf57d18b1846a2ac4ffea628dcce1a029e9bc304042c6",
+      "modeling/src/elder_guardian/capacity.py": "8b4a197c89a3ffb3cd6e64accb616ea0d6548ed4fed4584e76fe9cb826456326",
+      "modeling/src/elder_guardian/data.py": "a5ff81cb656a6dee4e7e5905315764491607149932afff8b554a280cd3482efd",
+      "modeling/src/elder_guardian/exact.py": "b962aeb4dd6e3e11236fb1515d46110648f5b0bd8eb9f226a53705c6527e2972",
+      "modeling/src/elder_guardian/features.py": "0c8ed1dbf6f1cf2a5f6069eac6dfe1444f29d33b5cef9e126d002ebd7f3e6815",
+      "modeling/src/elder_guardian/pipeline.py": "d24e29106a60c50fc536ea7b4028e5dab925d233607d065dd2daef88e92e940a",
+      "modeling/src/elder_guardian/reporting.py": "14514e868c9592da9b377dc11936a82a828513d2cfd964b0a477a1689e3f0c7d",
+      "modeling/src/elder_guardian/surrogate.py": "3760591e0b2e02b7792355534b41a547e2c8e6a79c1b7964c1c30dffa65fb130",
+      "modeling/scripts/finalize_run.py": "f41030987e12dd9f0ce15913ab567562d32e000975889bd3f2df3c0a22974b4b",
+      "modeling/scripts/predict.py": "3f412b06eb5bdc1583ea0c76713488e8750248a52dd7b96afacaeb5dec9418a8",
+      "modeling/scripts/retune_surrogate.py": "e23077a1d2e7f58492af515799a94e31773004c8e3a5772c9b5fad67abb4c106",
+      "modeling/scripts/train.py": "02bbcb16576be80848669f989779ae22f8b49c9ec2bd0cfc9b8f96175ff32e76",
+      "modeling/scripts/verify.py": "e3cbffeb130bc7036c97aab51179d0328246e73d06b1c631394b81b15f119884",
+      "modeling/tests/test_accessibility.py": "5b38b7639a4ca1ba3a14f6e9c5e70d1fb8caaf4808df8c5099f016fc659d89d9",
+      "modeling/tests/test_capacity.py": "1983ce442db895ef23883ada7c24aa5060d1372318a3b7dbb2006a580f3ed9fd",
+      "modeling/tests/test_data.py": "a8d7ce9ccf3173ffb3a526a1a39bd9397f3d15fb8b18b2ce221fe454261bffa8",
+      "modeling/tests/test_exact.py": "1f2e9afd756f99eec1b13f807d214cbc33b81449faf540af5ab52d7a934a686d",
+      "modeling/tests/test_features.py": "ca49cc6e9413ec24cc13724b284f9ea4bc087ecaac3fca9e05ac3be8df580c1b",
+      "modeling/tests/test_surrogate.py": "28ed4d6f039c9eb536818bec8bc2f2ab732e17f0eb251ddaf1d1a097d7810dc1"
+    }
+  },
+  "runtime_seconds_before_manifest": 325.61215116600215,
+  "artifact_hashes": {
+    "MODEL_REPORT.md": "47d5c9234053cf97fd2bbfa71c9a67fb8d32da3642dde5985ec63acfb0ff4597",
+    "candidate_reverse_geocode.json": "32b9683736fa7b3a6c952f8d04fc9611628b287967ca96b01a935ba082af48fa",
+    "capacity_diagnostic.joblib": "a7dba6471788c2fc6d8323ebdc4d167fc30d82c1ad0f6fd0c9021c597fbd04e5",
+    "capacity_validation.json": "ffc82fd91ed5d8d0a070b6e5cc189fdff3be92834b1d28bef9c4c177a3ea8018",
+    "exact_candidate_results.csv": "6b94ee0bc2e8df79a460cc53a8c2c25d8359d0fc57ec9a7810c953427be93149",
+    "facilities_historical_reference_winsorized.csv": "1f24090aca6c1809cc446f3bf9be9326d11ae3da700a710c0e9b6d24289c6681",
+    "facilities_legal_nominal.csv": "c2a13bb04d1d61763390fac779b1e26adea9981200acd1847fd9f9cd39e0a85b",
+    "facilities_strict_unknown.csv": "10a407df7929aba971f20ebfdb8812a46d085728bc294fdaf624ccd61a151b43",
+    "gnn_surrogate.pt": "95ded491257b9a915f2e6f9b7e9dd9f9d848f38c7e65e4886e0504f44c20da7d",
+    "map_base_exact.png": "f661607fcac734cf338d3fe1d2f5d692e2e920af40f1fa4757d78a7ed41d9923",
+    "mlp_surrogate.pt": "d17c2082e6be48932de56c497358e28c1fc3670c5568954ef6968a427b35d6f2",
+    "population_1km_residual_sensitivity.csv": "bff588ac4f544c1f09b9dd7191b899f845eb9744d7858221a5aefc71b93ddc6c",
+    "population_model_input.csv": "60c9c6ea1a5f4809d3819cf90c9dedf5528fb5c288e4ed93c8fafea14345a78a",
+    "recommendations_base_top20.csv": "77ce02eece46e03fbfa41eeb97acec685b48702b926202c2737ba1b54439dfdb",
+    "recommendations_robust_top20.csv": "fb4510216400512d15a0ac6de17f1be8c5f73e619e3181eb7582c991e8a01377",
+    "scenario_summary.json": "79884f49c02b954268e87bc003d996aa11f90caee76d0dac2b9fe342e2c5319b",
+    "surrogate_ensemble.json": "7fad26a8ddfa3da3fd034c005f851f87570a1241c6ed131539844ed6e659bc17",
+    "surrogate_improvement.json": "752e8829ecfd3f85f9421fa3b0512abd5c8dd4e7d5cbd2308e2c2744dab23afa",
+    "surrogate_improvement_oof.npz": "9d4c61603c30e10c77a54c353d921386653fc1febf960d09415e3703efd50132",
+    "surrogate_metrics.json": "8cb301a0336b69fe9eb95f329f7bd5bcbbb71a4208713fb9048d91dff09b8df9",
+    "surrogate_oof_predictions.npz": "9ecf2d24d903bf8f67e2b3a3ac16ef7ac2c2a1713972d45f6ca9cc5248ef3698",
+    "surrogate_ranking_curves.json": "a529730da723583824de4cf947813f01f798d3da2925a47cc50c424cb1d5a859",
+    "surrogate_training_tensor.npz": "1aaa3cee25c0d91c08f59b76a70e680a0091bf4ba85f253043db12902ada2628",
+    "surrogate_validation.png": "7171a7eb160c7300fa4337e668c4848e164989397a5e04a43ffe0aaeed7ff3a4",
+    "validation_gates.json": "83f2d4aff1a069f08efde3e56e72c8814203eb2895586243850627bf95586a62"
+  },
+  "runtime_seconds_total": 325.6918215829937
+}

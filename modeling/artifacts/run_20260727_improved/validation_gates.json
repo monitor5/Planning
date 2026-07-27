@@ -1,0 +1,18 @@
+{
+  "gcn_approved": false,
+  "thresholds": {
+    "min_spearman": 0.85,
+    "min_recall_at_20": 0.5,
+    "min_recall_best_at_20": 0.95,
+    "max_relative_policy_regret_at_20": 0.02
+  },
+  "strict_unknown": {
+    "capacity_sum": 0.0,
+    "baseline_gini_defined": false,
+    "status": "REJECTED_UNDEFINED_ZERO_MEAN",
+    "reason": "no verified operational concurrent-capacity observations"
+  },
+  "exact_approved_for_screening": true,
+  "final_authority": "exact_e2sfca_weighted_gini",
+  "deployment_scope": "WALK_EUCLIDEAN_FEASIBILITY_UNKNOWN_SCREENING"
+}

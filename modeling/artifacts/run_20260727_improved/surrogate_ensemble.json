@@ -1,0 +1,9 @@
+{
+  "artifact_type": "elder_guardian.FixedGCNMLPEnsemble",
+  "gcn_artifact": "gnn_surrogate.pt",
+  "mlp_artifact": "mlp_surrogate.pt",
+  "gcn_weight": 0.5,
+  "mlp_weight": 0.5,
+  "approved": false,
+  "final_predictions_require_exact_top_k_reranking": true
+}

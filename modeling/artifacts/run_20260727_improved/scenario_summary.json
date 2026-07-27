@@ -1,0 +1,93 @@
+[
+  {
+    "name": "legal20_walk10_new20",
+    "existing_capacity_mode": "LEGAL_NOMINAL",
+    "population_mode": "PUBLISHED_LOWER_BOUND",
+    "baseline_gini": 0.33677020124125506,
+    "best_candidate_gini": 0.3364191276860574,
+    "best_delta_gini": 0.00035107355519764516,
+    "best_gid": "다사637437",
+    "valid_candidates": 52736,
+    "invalid_zero_demand_candidates": 4986,
+    "exact_runtime_seconds": 3.5987253329949453,
+    "conservation_error": 5.820766091346741e-11
+  },
+  {
+    "name": "legal20_walk15_new20",
+    "existing_capacity_mode": "LEGAL_NOMINAL",
+    "population_mode": "PUBLISHED_LOWER_BOUND",
+    "baseline_gini": 0.2762244629341156,
+    "best_candidate_gini": 0.2758797913509348,
+    "best_delta_gini": 0.00034467158318080005,
+    "best_gid": "다사639440",
+    "valid_candidates": 55973,
+    "invalid_zero_demand_candidates": 1749,
+    "exact_runtime_seconds": 4.841272208010196,
+    "conservation_error": 1.4551915228366852e-11
+  },
+  {
+    "name": "legal20_walk15_new40_BASE",
+    "existing_capacity_mode": "LEGAL_NOMINAL",
+    "population_mode": "PUBLISHED_LOWER_BOUND",
+    "baseline_gini": 0.2762244629341156,
+    "best_candidate_gini": 0.2755521511286166,
+    "best_delta_gini": 0.0006723118054990374,
+    "best_gid": "다사638441",
+    "valid_candidates": 55973,
+    "invalid_zero_demand_candidates": 1749,
+    "exact_runtime_seconds": 4.8063152079994325,
+    "conservation_error": 1.4551915228366852e-11
+  },
+  {
+    "name": "legal20_walk15_new60",
+    "existing_capacity_mode": "LEGAL_NOMINAL",
+    "population_mode": "PUBLISHED_LOWER_BOUND",
+    "baseline_gini": 0.2762244629341156,
+    "best_candidate_gini": 0.2752642933615941,
+    "best_delta_gini": 0.0009601695725215409,
+    "best_gid": "다사640506",
+    "valid_candidates": 55973,
+    "invalid_zero_demand_candidates": 1749,
+    "exact_runtime_seconds": 4.842684333008947,
+    "conservation_error": 1.4551915228366852e-11
+  },
+  {
+    "name": "legal20_walk20_new40",
+    "existing_capacity_mode": "LEGAL_NOMINAL",
+    "population_mode": "PUBLISHED_LOWER_BOUND",
+    "baseline_gini": 0.24395744334524386,
+    "best_candidate_gini": 0.24329518982597412,
+    "best_delta_gini": 0.0006622535192697399,
+    "best_gid": "다사641507",
+    "valid_candidates": 57722,
+    "invalid_zero_demand_candidates": 0,
+    "exact_runtime_seconds": 7.038548208001885,
+    "conservation_error": 8.731149137020111e-11
+  },
+  {
+    "name": "historical_reference_walk15_new40",
+    "existing_capacity_mode": "HISTORICAL_REFERENCE_WINSORIZED",
+    "population_mode": "PUBLISHED_LOWER_BOUND",
+    "baseline_gini": 0.29278496416043964,
+    "best_candidate_gini": 0.2922888655113656,
+    "best_delta_gini": 0.0004960986490740171,
+    "best_gid": "다사642505",
+    "valid_candidates": 55973,
+    "invalid_zero_demand_candidates": 1749,
+    "exact_runtime_seconds": 4.7929235420015175,
+    "conservation_error": 1.4551915228366852e-11
+  },
+  {
+    "name": "legal20_walk15_new40_1km_residual",
+    "existing_capacity_mode": "LEGAL_NOMINAL",
+    "population_mode": "ONE_KM_RESIDUAL_SENSITIVITY",
+    "baseline_gini": 0.2759811806769372,
+    "best_candidate_gini": 0.27530955074971064,
+    "best_delta_gini": 0.0006716299272265802,
+    "best_gid": "다사638441",
+    "valid_candidates": 56919,
+    "invalid_zero_demand_candidates": 803,
+    "exact_runtime_seconds": 5.104673374997219,
+    "conservation_error": 0.0
+  }
+]

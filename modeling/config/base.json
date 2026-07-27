@@ -1,0 +1,82 @@
+{
+  "random_seed": 20260727,
+  "walking_speed_m_per_min": 51.0,
+  "candidate_stride_m": 100.0,
+  "scenarios": [
+    {
+      "name": "legal20_walk10_new20",
+      "existing_capacity_mode": "LEGAL_NOMINAL",
+      "population_mode": "PUBLISHED_LOWER_BOUND",
+      "new_capacity": 20.0,
+      "tau_minutes": 5.0,
+      "cutoff_minutes": 10.0
+    },
+    {
+      "name": "legal20_walk15_new20",
+      "existing_capacity_mode": "LEGAL_NOMINAL",
+      "population_mode": "PUBLISHED_LOWER_BOUND",
+      "new_capacity": 20.0,
+      "tau_minutes": 7.5,
+      "cutoff_minutes": 15.0
+    },
+    {
+      "name": "legal20_walk15_new40_BASE",
+      "existing_capacity_mode": "LEGAL_NOMINAL",
+      "population_mode": "PUBLISHED_LOWER_BOUND",
+      "new_capacity": 40.0,
+      "tau_minutes": 7.5,
+      "cutoff_minutes": 15.0
+    },
+    {
+      "name": "legal20_walk15_new60",
+      "existing_capacity_mode": "LEGAL_NOMINAL",
+      "population_mode": "PUBLISHED_LOWER_BOUND",
+      "new_capacity": 60.0,
+      "tau_minutes": 7.5,
+      "cutoff_minutes": 15.0
+    },
+    {
+      "name": "legal20_walk20_new40",
+      "existing_capacity_mode": "LEGAL_NOMINAL",
+      "population_mode": "PUBLISHED_LOWER_BOUND",
+      "new_capacity": 40.0,
+      "tau_minutes": 10.0,
+      "cutoff_minutes": 20.0
+    },
+    {
+      "name": "historical_reference_walk15_new40",
+      "existing_capacity_mode": "HISTORICAL_REFERENCE_WINSORIZED",
+      "population_mode": "PUBLISHED_LOWER_BOUND",
+      "new_capacity": 40.0,
+      "tau_minutes": 7.5,
+      "cutoff_minutes": 15.0
+    },
+    {
+      "name": "legal20_walk15_new40_1km_residual",
+      "existing_capacity_mode": "LEGAL_NOMINAL",
+      "population_mode": "ONE_KM_RESIDUAL_SENSITIVITY",
+      "new_capacity": 40.0,
+      "tau_minutes": 7.5,
+      "cutoff_minutes": 15.0
+    }
+  ],
+  "base_scenario": "legal20_walk15_new40_BASE",
+  "candidate_min_local_population_1000m": 1.0,
+  "surrogate": {
+    "hidden_dim": 32,
+    "dropout": 0.15,
+    "epochs": 160,
+    "patience": 20,
+    "learning_rate": 0.01,
+    "weight_decay": 0.0001,
+    "top_loss_weight": 20.0,
+    "folds": 5,
+    "top_k": 20
+  },
+  "gates": {
+    "min_spearman": 0.85,
+    "min_recall_at_20": 0.5,
+    "min_recall_best_at_20": 0.95,
+    "max_relative_policy_regret_at_20": 0.02
+  }
+}
