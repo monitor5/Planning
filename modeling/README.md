@@ -57,10 +57,11 @@ python3 modeling/scripts/predict.py \
 
 ## 모델 승인 게이트
 
-GCN은 자치구 공간 홀드아웃에서 다음 조건을 모두 만족할 때만 shortlist
-surrogate로 승인됩니다.
+GCN은 5-fold 자치구 GroupKFold의 out-of-fold 예측을 자치구 내부 단위로
+평가해 다음 조건을 모두 만족할 때만 shortlist surrogate로 승인됩니다.
+이 지표는 서울 전체 후보집합 정책지표와 별도로 해석해야 합니다.
 
-- Spearman 순위상관 ≥ 0.75
+- Spearman 순위상관 ≥ 0.85
 - Recall@20 ≥ 0.50
 - RecallBest@20 ≥ 0.95
 - top-20 exact 재평가 평균 상대 정책 regret ≤ 0.02

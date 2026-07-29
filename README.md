@@ -4,6 +4,23 @@
 
 정적 배포물은 `site/`에 있으며 별도 애플리케이션 런타임 없이 브라우저에서 열 수 있습니다.
 
+## 실험 모델 재검증
+
+이 브랜치에는 PDF 설계를 기준으로 다시 검증한 screening 모델과 실행 완료
+노트북이 포함됩니다.
+
+- [`modeling/notebooks/14_rewritten_model_revalidation.ipynb`](./modeling/notebooks/14_rewritten_model_revalidation.ipynb):
+  데이터 감사, E2SFCA/Gini 수식 대조, 전체 후보 반복실행, OOF 순위성능,
+  모델 가중치 forward, 테스트와 체크섬을 재실행합니다.
+- [`modeling/notebooks/14_rewritten_model_revalidation.html`](./modeling/notebooks/14_rewritten_model_revalidation.html):
+  Jupyter 없이 읽을 수 있는 렌더본입니다.
+- [`modeling/README.md`](./modeling/README.md): 설치와 검증 명령입니다.
+
+정확 계산부와 기본 시나리오는 검증을 통과했지만, 실제 운영 정원·다중교통
+OD·필지/예산 제약이 없고 GCN/MLP 승인 기준도 미달했습니다. 따라서 이
+결과는 `SCREENING_ONLY_NOT_POLICY_DEPLOYABLE`이며 실제 설치 부지 확정에
+사용할 수 없습니다.
+
 ## 문서 구성
 
 사이트는 여섯 문서로 구성됩니다.
