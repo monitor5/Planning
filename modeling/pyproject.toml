@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "elder-guardian-model"
-version = "0.1.0"
+version = "0.2.2"
 description = "Leakage-safe E2SFCA/Gini screening model for Seoul senior leisure facilities"
 requires-python = ">=3.11"
 dependencies = [
@@ -28,4 +28,3 @@ where = ["src"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q"
-

@@ -13,6 +13,21 @@
    검증합니다.
 6. 최종 추천은 GCN 점수를 그대로 쓰지 않고 exact evaluator로 다시 검산합니다.
 
+GNN의 19개 입력, 그래프 구조, 학습법, OOF 성능, 시나리오별 실패와 허용
+범위는 [`GNN_MODEL_CARD.md`](./GNN_MODEL_CARD.md)에 정리되어 있습니다.
+
+저장된 GNN의 체크섬과 입력 계약을 확인한 뒤 7개 학습 시나리오 중 하나를
+실제로 실행하려면 다음 명령을 사용합니다. 출력은 **후보 압축용 점수**이며,
+최종 추천 전 exact E2SFCA/Gini 재평가가 필수입니다.
+
+```bash
+python modeling/scripts/predict_gnn.py \
+  --artifacts modeling/artifacts/run_20260727_improved \
+  --scenario legal20_walk15_new40_BASE \
+  --top 50 \
+  --output /tmp/gnn_shortlist.csv
+```
+
 ## 빠른 실행
 
 프로젝트 루트에서:

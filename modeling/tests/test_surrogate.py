@@ -24,7 +24,10 @@ def test_gcn_accepts_scenario_batch():
     coo = normalized_spatial_adjacency(xy, groups)
     indices = torch.as_tensor(np.vstack([coo.row, coo.col]), dtype=torch.long)
     adjacency = torch.sparse_coo_tensor(
-        indices, torch.as_tensor(coo.data, dtype=torch.float32), coo.shape
+        indices,
+        torch.as_tensor(coo.data, dtype=torch.float32),
+        coo.shape,
+        check_invariants=True,
     ).coalesce()
     model = SpatialGCN(input_dim=3, hidden_dim=4, dropout=0.0)
     output = model(torch.ones((2, 2, 3)), adjacency)

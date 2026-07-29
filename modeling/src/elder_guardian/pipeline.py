@@ -266,6 +266,7 @@ def model_code_hashes(project_root: Path) -> dict:
     paths = [
         modeling / "pyproject.toml",
         modeling / "README.md",
+        modeling / "GNN_MODEL_CARD.md",
         modeling / "SECURITY.md",
         *sorted((modeling / "config").rglob("*")),
         *sorted((modeling / "src").rglob("*.py")),

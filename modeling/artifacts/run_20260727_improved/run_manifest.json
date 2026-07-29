@@ -458,7 +458,7 @@
       "valid_candidates": 52736,
       "invalid_zero_demand_candidates": 4986,
       "exact_runtime_seconds": 3.5987253329949453,
-      "conservation_error": 5.820766091346741e-11
+      "conservation_error": 5.820766091346741E-11
     },
     {
       "name": "legal20_walk15_new20",
@@ -471,7 +471,7 @@
       "valid_candidates": 55973,
       "invalid_zero_demand_candidates": 1749,
       "exact_runtime_seconds": 4.841272208010196,
-      "conservation_error": 1.4551915228366852e-11
+      "conservation_error": 1.4551915228366852E-11
     },
     {
       "name": "legal20_walk15_new40_BASE",
@@ -484,7 +484,7 @@
       "valid_candidates": 55973,
       "invalid_zero_demand_candidates": 1749,
       "exact_runtime_seconds": 4.8063152079994325,
-      "conservation_error": 1.4551915228366852e-11
+      "conservation_error": 1.4551915228366852E-11
     },
     {
       "name": "legal20_walk15_new60",
@@ -497,7 +497,7 @@
       "valid_candidates": 55973,
       "invalid_zero_demand_candidates": 1749,
       "exact_runtime_seconds": 4.842684333008947,
-      "conservation_error": 1.4551915228366852e-11
+      "conservation_error": 1.4551915228366852E-11
     },
     {
       "name": "legal20_walk20_new40",
@@ -510,7 +510,7 @@
       "valid_candidates": 57722,
       "invalid_zero_demand_candidates": 0,
       "exact_runtime_seconds": 7.038548208001885,
-      "conservation_error": 8.731149137020111e-11
+      "conservation_error": 8.731149137020111E-11
     },
     {
       "name": "historical_reference_walk15_new40",
@@ -523,7 +523,7 @@
       "valid_candidates": 55973,
       "invalid_zero_demand_candidates": 1749,
       "exact_runtime_seconds": 4.7929235420015175,
-      "conservation_error": 1.4551915228366852e-11
+      "conservation_error": 1.4551915228366852E-11
     },
     {
       "name": "legal20_walk15_new40_1km_residual",
@@ -589,8 +589,9 @@
       }
     },
     "modeling_code_hashes": {
-      "modeling/pyproject.toml": "953115db4ea36aebca09270a042474dc695383de0b33b75e541d357b4ee93292",
-      "modeling/README.md": "3e8e8590801f8f760cdd74f73ba28626b338907d042a0ca7d26f429a43378723",
+      "modeling/pyproject.toml": "8cfb003adbde93cba4a0812f4b7cf31a6cb4dcdbe96b94acb5a94fb8109d06d8",
+      "modeling/README.md": "4096e290ec2e4006325632bbe66e3292bb13c773404ec3577db40108a590aeda",
+      "modeling/GNN_MODEL_CARD.md": "db159df29ed9230aa92c1fd79fb55c2120422c787d18035c4a421372cbd58eea",
       "modeling/SECURITY.md": "cd2e3a3db2c5614f9e098ba4f12225804a561be411d271a42191f6d373241cab",
       "modeling/config/base.json": "25361f0b879ef66a8bc3914518e4be6d7839a1eaaf9e6b82b2b3ee30b24ae09d",
       "modeling/src/elder_guardian/__init__.py": "a49af43d7d7551b7ed6d603860b6bda6c5cf59cd2e5540efc5c38048e8555ffd",
@@ -599,12 +600,13 @@
       "modeling/src/elder_guardian/data.py": "a5ff81cb656a6dee4e7e5905315764491607149932afff8b554a280cd3482efd",
       "modeling/src/elder_guardian/exact.py": "b962aeb4dd6e3e11236fb1515d46110648f5b0bd8eb9f226a53705c6527e2972",
       "modeling/src/elder_guardian/features.py": "0c8ed1dbf6f1cf2a5f6069eac6dfe1444f29d33b5cef9e126d002ebd7f3e6815",
-      "modeling/src/elder_guardian/pipeline.py": "d24e29106a60c50fc536ea7b4028e5dab925d233607d065dd2daef88e92e940a",
+      "modeling/src/elder_guardian/pipeline.py": "9d5a8f03f9a30877bc90837b143488d39ce47d79c8bcb1c507fd4f9ee4fa8eba",
       "modeling/src/elder_guardian/reporting.py": "14514e868c9592da9b377dc11936a82a828513d2cfd964b0a477a1689e3f0c7d",
-      "modeling/src/elder_guardian/surrogate.py": "3760591e0b2e02b7792355534b41a547e2c8e6a79c1b7964c1c30dffa65fb130",
-      "modeling/scripts/build_validation_notebook.py": "c4dc785924228b1ad1218e6ce3c9b673c1261c577af4c8c5a3928dcf12366ed2",
+      "modeling/src/elder_guardian/surrogate.py": "ffc79da50a1f92a7bf49f7a5621f5fd9da7ac691f5b9518c9af7d43afa639b03",
+      "modeling/scripts/build_validation_notebook.py": "d4dbc951ff95e1ed4f1cedc0df849d7d42725a39f4f20557f96e0370e0167847",
       "modeling/scripts/finalize_run.py": "f41030987e12dd9f0ce15913ab567562d32e000975889bd3f2df3c0a22974b4b",
       "modeling/scripts/predict.py": "3f412b06eb5bdc1583ea0c76713488e8750248a52dd7b96afacaeb5dec9418a8",
+      "modeling/scripts/predict_gnn.py": "794071b7595190aa938e4e530a5de559901e3d2a28bb0aec6cca2708c7221ce6",
       "modeling/scripts/retune_surrogate.py": "e23077a1d2e7f58492af515799a94e31773004c8e3a5772c9b5fad67abb4c106",
       "modeling/scripts/train.py": "02bbcb16576be80848669f989779ae22f8b49c9ec2bd0cfc9b8f96175ff32e76",
       "modeling/scripts/verify.py": "e3cbffeb130bc7036c97aab51179d0328246e73d06b1c631394b81b15f119884",
@@ -613,7 +615,8 @@
       "modeling/tests/test_data.py": "a8d7ce9ccf3173ffb3a526a1a39bd9397f3d15fb8b18b2ce221fe454261bffa8",
       "modeling/tests/test_exact.py": "1f2e9afd756f99eec1b13f807d214cbc33b81449faf540af5ab52d7a934a686d",
       "modeling/tests/test_features.py": "ca49cc6e9413ec24cc13724b284f9ea4bc087ecaac3fca9e05ac3be8df580c1b",
-      "modeling/tests/test_surrogate.py": "28ed4d6f039c9eb536818bec8bc2f2ab732e17f0eb251ddaf1d1a097d7810dc1"
+      "modeling/tests/test_predict_gnn.py": "3a9adb7d8cfa4a3d75f905a58279eff1d27ae7a9d578767d1777c27ed522a7f6",
+      "modeling/tests/test_surrogate.py": "99de825225aeef5a170d4ee776bcb49b488fd419a691e61180af00ab2ad101b3"
     }
   },
   "runtime_seconds_before_manifest": 325.61215116600215,
@@ -626,6 +629,7 @@
     "facilities_historical_reference_winsorized.csv": "1f24090aca6c1809cc446f3bf9be9326d11ae3da700a710c0e9b6d24289c6681",
     "facilities_legal_nominal.csv": "c2a13bb04d1d61763390fac779b1e26adea9981200acd1847fd9f9cd39e0a85b",
     "facilities_strict_unknown.csv": "10a407df7929aba971f20ebfdb8812a46d085728bc294fdaf624ccd61a151b43",
+    "gnn_deployment_contract.json": "04f08f1e6d01819202a653193f41c6ea31f2eae047540ae83cccb4ec08184093",
     "gnn_surrogate.pt": "95ded491257b9a915f2e6f9b7e9dd9f9d848f38c7e65e4886e0504f44c20da7d",
     "map_base_exact.png": "f661607fcac734cf338d3fe1d2f5d692e2e920af40f1fa4757d78a7ed41d9923",
     "mlp_surrogate.pt": "d17c2082e6be48932de56c497358e28c1fc3670c5568954ef6968a427b35d6f2",

@@ -14,12 +14,25 @@
   모델 가중치 forward, 테스트와 체크섬을 재실행합니다.
 - [`modeling/notebooks/14_rewritten_model_revalidation.html`](./modeling/notebooks/14_rewritten_model_revalidation.html):
   Jupyter 없이 읽을 수 있는 렌더본입니다.
+- [`modeling/GNN_MODEL_CARD.md`](./modeling/GNN_MODEL_CARD.md):
+  19개 입력, 그래프/학습 계약, OOF·서울전체 Top-K 성능, 속도와 허용 범위를
+  구분해 기록합니다.
 - [`modeling/README.md`](./modeling/README.md): 설치와 검증 명령입니다.
 
 정확 계산부와 기본 시나리오는 검증을 통과했지만, 실제 운영 정원·다중교통
 OD·필지/예산 제약이 없고 GCN/MLP 승인 기준도 미달했습니다. 따라서 이
 결과는 `SCREENING_ONLY_NOT_POLICY_DEPLOYABLE`이며 실제 설치 부지 확정에
 사용할 수 없습니다.
+
+SpatialGCN은 OOF `R²=0.966`이지만 서울 전체 실제 1위의 Top-20 포착은
+`4/7`로 승인 기준을 통과하지 못했습니다. Top-50은 저장된 7개 시나리오에서
+`7/7`이었으나 사후 선택값이므로 exact 재평가가 필수입니다. 제한형
+`predict_gnn.py`는 체크섬·입력 계약을 확인해 저장 시나리오를 실제
+점수화합니다.
+
+행 단위 tensor와 전체 exact 결과는 저장소 용량 때문에 브랜치에서 제외하고,
+검증 가능한 전체 묶음을
+[`elder-guardian-model-v0.2.2` 릴리스](https://github.com/monitor5/Planning/releases/tag/elder-guardian-model-v0.2.2)로 제공합니다.
 
 ## 문서 구성
 

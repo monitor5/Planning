@@ -115,7 +115,9 @@ def _to_torch_sparse(matrix: sparse.coo_matrix) -> torch.Tensor:
         np.vstack([matrix.row, matrix.col]), dtype=torch.long
     )
     values = torch.as_tensor(matrix.data, dtype=torch.float32)
-    return torch.sparse_coo_tensor(indices, values, matrix.shape).coalesce()
+    return torch.sparse_coo_tensor(
+        indices, values, matrix.shape, check_invariants=True
+    ).coalesce()
 
 
 def _ranking_metrics(

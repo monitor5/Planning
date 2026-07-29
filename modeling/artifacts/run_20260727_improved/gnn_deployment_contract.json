@@ -1,0 +1,94 @@
+{
+  "artifact_type": "elder_guardian.SpatialGCN",
+  "model_version": "0.2.2",
+  "status": "NOT_APPROVED_FOR_SHORTLIST_AT_K20",
+  "permitted_use": "experimental broad shortlist followed by exact re-ranking",
+  "prohibited_use": [
+    "direct final site selection",
+    "interpreting GNN score as observed policy impact",
+    "deployment without exact E2SFCA/Gini re-evaluation"
+  ],
+  "final_authority": "exact_e2sfca_weighted_gini",
+  "checkpoint": {
+    "filename": "gnn_surrogate.pt",
+    "sha256": "95ded491257b9a915f2e6f9b7e9dd9f9d848f38c7e65e4886e0504f44c20da7d",
+    "bytes": 11549,
+    "input_dim": 19,
+    "hidden_dim": 32,
+    "dropout": 0.15,
+    "parameter_count": 1729,
+    "output_semantics": "predicted exact delta_gini"
+  },
+  "required_tensor": {
+    "filename": "surrogate_training_tensor.npz",
+    "sha256": "1aaa3cee25c0d91c08f59b76a70e680a0091bf4ba85f253043db12902ada2628",
+    "features_shape": [
+      7,
+      52736,
+      19
+    ],
+    "targets_shape": [
+      7,
+      52736
+    ],
+    "coordinate_crs": "EPSG:5179"
+  },
+  "graph": {
+    "rule": "same-district Euclidean neighbors plus self-loops",
+    "radius_m": 145.0,
+    "normalization": "symmetric D^-1/2(A+I)D^-1/2",
+    "nodes": 52736,
+    "undirected_nonself_edges": 200767,
+    "sparse_nnz_with_self_loops": 454270,
+    "connected_components": 36,
+    "self_loop_only_nodes": 2,
+    "transport_edges_present": false
+  },
+  "training": {
+    "optimizer": "Adam",
+    "learning_rate": 0.01,
+    "weight_decay": 0.0001,
+    "epochs": 160,
+    "top_loss_weight": 20.0,
+    "loss": "top-emphasized Huber",
+    "random_seed": 20260727,
+    "final_checkpoint_early_stopping": false,
+    "pairwise_ranking_loss_present": false
+  },
+  "validation": {
+    "split": "5-fold district GroupKFold OOF",
+    "gcn_oof_mae": 0.00002842425,
+    "gcn_oof_rmse": 0.00004439299,
+    "gcn_oof_r2": 0.966357,
+    "gcn_oof_spearman": 0.982840,
+    "seoul_recall_best_at_20": 0.571429,
+    "seoul_recall_best_at_50": 1.0,
+    "seoul_scenarios": 7,
+    "k50_is_post_hoc": true,
+    "external_time_or_city_holdout": false
+  },
+  "inference": {
+    "entrypoint": "modeling/scripts/predict_gnn.py",
+    "scores_only_saved_scenarios": true,
+    "new_raw_data_feature_pipeline_exposed": false,
+    "exact_rerank_automated": false
+  },
+  "observed_validation_environment": {
+    "python": "3.11.4",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "scipy": "1.17.1",
+    "scikit_learn": "1.9.0",
+    "torch": "2.13.0",
+    "device": "CPU"
+  },
+  "known_missing_operational_controls": [
+    "lockfile or container digest",
+    "online feature API",
+    "automatic exact reranking",
+    "latency and memory SLA",
+    "input and score drift monitoring",
+    "external-date or external-city validation",
+    "multi-seed uncertainty"
+  ]
+}
